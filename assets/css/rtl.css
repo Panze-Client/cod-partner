@@ -7,6 +7,14 @@ body {
     direction: rtl;
 }
 
+.ltr-element {
+    display: none;
+}
+
+.rtl-element {
+    display: inline-block;
+}
+
 .text-end {
     text-align: left !important;
 }
@@ -17,12 +25,12 @@ body {
 
 .single__work__item {
     padding-left: 0px;
-    padding-right: 30px;
+    padding-right: 50px;
 }
 
 .single__work__item .dot {
-    left: auto;
-    right: 0px;
+    margin-right: -35px;
+    margin-left: 0px;
 }
 
 .icon__list li {
@@ -89,6 +97,55 @@ nav.nav__menu .nav__list li ul.mega__menu li a .icon {
     margin-right: 1rem !important;
 }
 
+.check__list li::before {
+    margin-right: 0px;
+    margin-left: 8px;
+}
+
+.input__radios > * {
+    margin-right: 0px;
+    margin-left: 12px;
+}
+
+.input__radio input[type="radio"] {
+    margin-right: 0px;
+    margin-left: 6px;
+}
+
+.input__checkbox {
+    padding-left: 0px;
+    padding-right: 30px;
+}
+
+.input__checkbox input[type="checkbox"] {
+    left: auto;
+    right: 0px;
+}
+
+.rtl__image {
+    transform: rotateY(190deg);
+}
+
+.capital_header_image {
+    float: right;
+}
+
+.search__form .form__input {
+    margin-left: 12px;
+    margin-right: 0px;
+}
+
+.dir__buttons {
+    left: auto;
+    right: 16px;
+}
+
+
+.toggle__button {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
 @media only screen and (min-width: 1201px) {
     nav.nav__menu .nav__list li a .arrow {
         margin-left: 0px;
@@ -126,5 +183,17 @@ nav.nav__menu .nav__list li ul.mega__menu li a .icon {
 @media only screen and (max-width: 992px) {
     .footer__area .social__links {
         float: left;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .search__form .form__input {
+        margin-left: 0px;
+    }
+
+    .toggle__button {
+        margin-left: 0px;
+        margin-right: 5px;
     }
 }

@@ -115,11 +115,11 @@
     :root {
         --font-size-base: 14px;
         --line-height-base: 1.4em;
+        --navbar-height: 66px;
     }
 
     .single__work__item {
-        margin-left: 15px;
-        padding-left: 20px;
+        padding-top: 30px;
     }
 
     .testimonial__items .masonry__item {
@@ -176,6 +176,15 @@
     .header__area {
         padding-top: calc(var(--navbar-height) + var(--spacing-xxl) * 2);
     }
+    .search__form .form__input {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+    .search__form .button {
+        max-width: 100%;
+    }
+
     
 }
 
@@ -187,5 +196,6 @@
     .toggle__button {
         width: 35px;
         height: 35px;
+        margin-left: 5px;
     }
 }

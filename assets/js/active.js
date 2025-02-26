@@ -1,11 +1,18 @@
 ;(function($) {
     $(document).ready(function() {
+    
 
-        // Initialize AOS
-        AOS.init({
-            duration: 1200, // Animation duration in milliseconds
-            once: true,     // Animation should happen only once
-        });
+
+        new WOW({
+            boxClass: 'wow',       // CSS class to apply WOW.js animations
+            animateClass: 'animated', // CSS animation class
+            offset: 0,             // Distance in pixels before the element is visible
+            mobile: true,          // Enable animations on mobile devices
+            live: true,            // Act on dynamically added elements
+            scrollContainer: null, // Optional scroll container selector
+            resetAnimation: true   // Reset animation when the element is scrolled out
+        }).init();
+        
 
         $(document).ready(function(){
             $('.navbar__area .nav__menu  li > .toggle').on('click', function(){
@@ -74,116 +81,135 @@
         });
         
 
+        let swiperOne = new Swiper(".outreach__slider.one", {
+            slidesPerView: "auto",
+            centeredSlides: true,
+            spaceBetween: 16,
+            loop: true, // Enable infinite loop
+            autoplay: {
+                delay: 0, // Continuous sliding
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            speed: 3000, // Slide speed in milliseconds
+            simulateTouch: false, // Disable touch interaction
+            allowTouchMove: false, // Disable slide dragging
+            draggable: false, // Disable dragging on desktop
+        });
         
+        let swiperTwo = new Swiper(".outreach__slider.two", {
+            slidesPerView: "auto",
+            centeredSlides: true,
+            spaceBetween: 16,
+            loop: true, // Enable infinite loop
+            autoplay: {
+                delay: 0, // Continuous sliding
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            speed: 3000, // Slide speed in milliseconds
+            simulateTouch: false, // Disable touch interaction
+            allowTouchMove: false, // Disable slide dragging
+            draggable: false, // Disable dragging on desktop
+        });
+        
+
+        var swiperPartners = new Swiper(".partners__slider", {
+            slidesPerView: 3,
+            spaceBetween: 0,
+            loop: true, // Enable infinite loop
+            autoplay: {
+                delay: 0, // Continuous sliding
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            speed: 3000, // Slide speed in milliseconds
+            simulateTouch: false, // Disable touch interaction
+            allowTouchMove: false, // Disable slide dragging
+            draggable: false, // Disable dragging on desktop
+            breakpoints: {
+                640: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                1024: {
+                    slidesPerView: 6,
+                },
+            },
+        });
+
+
+        var swiperClient = new Swiper(".client__slider", {
+            slidesPerView: 3,
+            spaceBetween: 0,
+            loop: true, // Enable infinite loop
+            autoplay: {
+                delay: 0, // Continuous sliding
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            speed: 3000, // Slide speed in milliseconds
+            simulateTouch: false, // Disable touch interaction
+            allowTouchMove: false, // Disable slide dragging
+            draggable: false, // Disable dragging on desktop
+            breakpoints: {
+                640: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                1024: {
+                    slidesPerView: 5,
+                },
+            },
+        });
+
+        var swiperTrusted = new Swiper(".trusted__slider", {
+            slidesPerView: 3,
+            spaceBetween: 0,
+            loop: true, // Enable infinite loop
+            autoplay: {
+                delay: 0, // Continuous sliding
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            speed: 3000, // Slide speed in milliseconds
+            simulateTouch: false, // Disable touch interaction
+            allowTouchMove: false, // Disable slide dragging
+            draggable: false, // Disable dragging on desktop
+            breakpoints: {
+                640: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                1024: {
+                    slidesPerView: 5,
+                },
+            },
+        });
+
+        
+        // Append stylesheet and buttons
+        $("head").append('<link id="rtlsheet" rel="stylesheet">');
+        $("body").append('<div class="dir__buttons"><button id="rtlBtn">RTL</button><button id="ltrBtn">LTR</button></div>');
+
+        // Load saved direction or default
+        let direction = localStorage.getItem("direction") || "ltr";
+        $("#rtlsheet").attr("href", `./assets/css/${direction}.css`);
+        $("html").attr("dir", direction); 
+        $(".dir__buttons button").removeClass("active").filter(`#${direction}Btn`).addClass("active");
+
+        // Button click handler
+        $(".dir__buttons button").on("click", function () {
+            let newDirection = this.id === "rtlBtn" ? "rtl" : "ltr";
+            if (newDirection !== direction) {
+                localStorage.setItem("direction", newDirection);
+                $("html").attr("dir", newDirection);
+                $("#rtlsheet").attr("href", `./assets/css/${newDirection}.css`);
+                location.reload();
+            }
+        });
+
 
     });
 })(jQuery);
-
-
-
-var swiper = new Swiper(".partners__slider", {
-    slidesPerView: 3,
-    spaceBetween: 0,
-    loop: true, // Enable infinite loop
-    autoplay: {
-        delay: 0, // Continuous sliding
-        disableOnInteraction: false, // Continue autoplay after user interaction
-    },
-    speed: 4000, // Slide speed in milliseconds
-    simulateTouch: false, // Disable touch interaction
-    allowTouchMove: false, // Disable slide dragging
-    draggable: false, // Disable dragging on desktop
-    breakpoints: {
-        640: {
-            slidesPerView: 3,
-        },
-        768: {
-            slidesPerView: 4,
-        },
-        1024: {
-            slidesPerView: 6,
-        },
-    },
-});
-
-
-var swiper = new Swiper(".client__slider", {
-    slidesPerView: 3,
-    spaceBetween: 0,
-    loop: true, // Enable infinite loop
-    autoplay: {
-        delay: 0, // Continuous sliding
-        disableOnInteraction: false, // Continue autoplay after user interaction
-    },
-    speed: 4000, // Slide speed in milliseconds
-    simulateTouch: false, // Disable touch interaction
-    allowTouchMove: false, // Disable slide dragging
-    draggable: false, // Disable dragging on desktop
-    breakpoints: {
-        640: {
-            slidesPerView: 3,
-        },
-        768: {
-            slidesPerView: 4,
-        },
-        1024: {
-            slidesPerView: 5,
-        },
-    },
-});
-
-var swiper = new Swiper(".trusted__slider", {
-    slidesPerView: 3,
-    spaceBetween: 0,
-    loop: true, // Enable infinite loop
-    autoplay: {
-        delay: 0, // Continuous sliding
-        disableOnInteraction: false, // Continue autoplay after user interaction
-    },
-    speed: 4000, // Slide speed in milliseconds
-    simulateTouch: false, // Disable touch interaction
-    allowTouchMove: false, // Disable slide dragging
-    draggable: false, // Disable dragging on desktop
-    breakpoints: {
-        640: {
-            slidesPerView: 3,
-        },
-        768: {
-            slidesPerView: 4,
-        },
-        1024: {
-            slidesPerView: 5,
-        },
-    },
-});
-
-var swiper = new Swiper(".outreach__slider.one", {
-    slidesPerView: "auto",
-    centeredSlides: true,
-    spaceBetween: 10,
-    loop: true, // Enable infinite loop
-    autoplay: {
-        delay: 0, // Continuous sliding
-        disableOnInteraction: false, // Continue autoplay after user interaction
-    },
-    speed: 4000, // Slide speed in milliseconds
-    simulateTouch: false, // Disable touch interaction
-    allowTouchMove: false, // Disable slide dragging
-    draggable: false, // Disable dragging on desktop
-});
-
-var swiper = new Swiper(".outreach__slider.two", {
-    slidesPerView: "auto",
-    centeredSlides: true,
-    spaceBetween: 10,
-    loop: true, // Enable infinite loop
-    autoplay: {
-        delay: 0, // Continuous sliding
-        disableOnInteraction: false, // Continue autoplay after user interaction
-        reverseDirection: true, // Moves to the left
-    },
-    speed: 4000, // Slide speed in milliseconds
-    simulateTouch: false, // Disable touch interaction
-    allowTouchMove: false, // Disable slide dragging
-    draggable: false, // Disable dragging on desktop
-});

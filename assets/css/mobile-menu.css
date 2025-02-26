@@ -83,10 +83,21 @@
     nav.nav__menu .nav__list li.mega__item {
         position: static;
     }
-    nav.nav__menu .nav__list li ul.mega__menu {
+
+    nav.nav__menu .nav__list li ul.mega__menu::before {
+        content: '';
+        position: absolute;
         left: 0;
-        top: 100%;
+        top: -32px;
         width: 100%;
+        height: 33px;
+        border: none;
+    }
+
+    nav.nav__menu .nav__list li ul.mega__menu {
+        left: -50px;
+        top: calc(100% + 30px);
+        width: calc(100% + 100px);
         display: flex;
         flex-wrap: wrap;
         padding: var(--spacing-lg);
@@ -155,6 +166,10 @@
         padding-bottom: var(--spacing-lg);
         padding-left: var(--spacing-lg);
         display: none;
+    }
+
+    .nav__menu .nav__list > li.mega__item ul {
+        padding-left: 0px;
     }
     
     .navbar__area .nav__menu .nav__list li .toggle {
