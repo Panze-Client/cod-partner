@@ -856,28 +856,45 @@ nav.nav__menu .nav__list li ul.mega__menu li:hover>a>.icon {
 }
 
 .map_pointers .pointer.one {
-    left: 46%;
-    top: 40%;
+    left: 63%;
+    top: 51%;
 }
-
 .map_pointers .pointer.two {
-    top: 64%;
-    left: 47%;
+    left: 59%;
+    top: 50%;
 }
 
 .map_pointers .pointer.three {
-    left: 56%;
+    left: 43%;
     top: 55%;
 }
 
 .map_pointers .pointer.four {
-    left: 62%;
-    top: 52%;
+    left: 47%;
+    top: 60%;
 }
 
 .map_pointers .pointer.five {
-    left: 75%;
-    top: 51%;
+    left: 45%;
+    top: 45%;
+}
+
+.map_pointers .pointer.six {
+    left: 59%;
+    top: 43%;
+}
+
+.map_pointers .pointer.seven {
+    left: 60.2%;
+    top: 48%;
+}
+.map_pointers .pointer.eight {
+    left: 60.6%;
+    top: 45%;
+}
+.map_pointers .pointer.nine {
+    left: 62%;
+    top: 48%;
 }
 
 .work__icon_info {
