@@ -50,6 +50,22 @@
     .capital_header_image {
         width: 100%;
     }
+
+    .funding__box .title {
+        font-size: 16px;
+    }
+    
+    .funding__box .icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+    
+    .funding__box {
+        padding: 6px 12px 6px 6px;
+        border-radius: 10px;
+    }
+
 }
 
 @media only screen and (max-width: 992px) {
@@ -116,6 +132,15 @@
         --font-size-base: 14px;
         --line-height-base: 1.4em;
         --navbar-height: 66px;
+    }
+
+
+    .funding__box {
+        width: calc(50% - 16px);
+    }
+
+    .funding__box .title {
+        font-size: 14px;
     }
 
     .single__work__item {
@@ -188,7 +213,15 @@
     
 }
 
+@media only screen and (max-width: 576px) {
+    .funding__box {
+        width: calc(100% - 16px);
+    }
+}
+
 @media only screen and (max-width: 380px) {
+
+
     .navbar__area .button {
         padding: 8px 16px;
     }
