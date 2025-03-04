@@ -542,3 +542,49 @@ select::-ms-expand {
     background-color: var(--primary-color);
     color: white;
 }
+
+
+.custom-select {
+    position: relative;
+    width: 60px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.custom-select .select-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.custom-select .options-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    width: 120px;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+
+.custom-select .options-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.custom-select .options-list li:hover {
+    background: #f0f0f0;
+}
+
+.custom-select .show {
+    display: block;
+}

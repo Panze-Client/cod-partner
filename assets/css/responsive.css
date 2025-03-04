@@ -217,6 +217,9 @@
     .funding__box {
         width: calc(100% - 16px);
     }
+    .navbar__area .button {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 380px) {

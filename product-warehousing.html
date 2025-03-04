@@ -21,6 +21,7 @@
 
     <div class="page__wrapper">
         <!-- Navbar--area -->
+        
         <div class="navbar__area">
             <div class="container p-0"> <!-- Container for page alignment -->
                 <div class="navbar__row">
@@ -36,11 +37,26 @@
 
                         <!-- Button column -->
                         <div class="col-6 col-xl-2 order-xl-1 text-end">
-                            <a href="/" class="button">
-                                Sign Up
-                            </a>
-                            <button class="toggle__button d-xl-none" type="button"><i
-                                    class="fa-solid fa-bars-staggered"></i></button>
+                            <div class="d-inline-flex align-items-center">
+                                <div class="custom-select mx-1 mx-sm-3">
+                                    <div class="select-box">
+                                        <span id="selected-language">ENG</span>
+                                        <svg width="30" height="30" viewBox="0 0 24 24">
+                                            <path d="M7 10l5 5 5-5z" fill="#652EDA"/>
+                                        </svg>
+                                    </div>
+                                    <ul class="options-list">
+                                        <li data-lang="en" data-dir="ltr">ENG</li>
+                                        <li data-lang="ar" data-dir="rtl">AR</li>
+                                    </ul>
+                                </div>
+
+                                <a href="/" class="button">
+                                    Sign Up
+                                </a>
+                                <button class="toggle__button d-xl-none" type="button"><i
+                                        class="fa-solid fa-bars-staggered"></i></button>
+                            </div>
                         </div>
 
                         <!-- Navigation menu column -->

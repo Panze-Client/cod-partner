@@ -1,8 +1,6 @@
 ;(function($) {
-    $(document).ready(function() {
     
-
-
+    $(document).ready(function() {
         new WOW({
             boxClass: 'wow',       // CSS class to apply WOW.js animations
             animateClass: 'animated', // CSS animation class
@@ -189,27 +187,51 @@
         });
 
         
-        // Append stylesheet and buttons
-        $("head").append('<link id="rtlsheet" rel="stylesheet">');
-        $("body").append('<div class="dir__buttons"><button id="rtlBtn">RTL</button><button id="ltrBtn">LTR</button></div>');
-
-        // Load saved direction or default
-        let direction = localStorage.getItem("direction") || "ltr";
-        $("#rtlsheet").attr("href", `./assets/css/${direction}.css`);
-        $("html").attr("dir", direction); 
-        $(".dir__buttons button").removeClass("active").filter(`#${direction}Btn`).addClass("active");
-
-        // Button click handler
-        $(".dir__buttons button").on("click", function () {
-            let newDirection = this.id === "rtlBtn" ? "rtl" : "ltr";
-            if (newDirection !== direction) {
-                localStorage.setItem("direction", newDirection);
-                $("html").attr("dir", newDirection);
-                $("#rtlsheet").attr("href", `./assets/css/${newDirection}.css`);
-                location.reload();
-            }
-        });
-
 
     });
+
+
+    $(document).ready(function () {
+        // Append stylesheet link
+        $("head").append('<link id="rtlsheet" rel="stylesheet">');
+
+        // Load saved direction or default
+        let savedLang = localStorage.getItem("language") || "en";
+        let direction = savedLang === "ar" ? "rtl" : "ltr";
+
+        // Apply saved settings
+        $("#selected-language").html(savedLang === "ar" ? "AR" : "ENG");
+        $("html").attr("dir", direction);
+        $("#rtlsheet").attr("href", `./assets/css/${direction}.css`);
+
+        // Toggle dropdown
+        $(".select-box").click(function () {
+            $(".options-list").toggle();
+        });
+
+        // Language selection
+        $(".options-list li").click(function () {
+            let selectedText = $(this).html();
+            let lang = $(this).data("lang");
+            let newDirection = $(this).data("dir");
+
+            // Save new settings
+            localStorage.setItem("language", lang);
+            $("html").attr("dir", newDirection);
+            $("#rtlsheet").attr("href", `./assets/css/${newDirection}.css`);
+
+            // Update UI
+            $("#selected-language").html(selectedText);
+            $(".options-list").hide();
+            location.reload();
+        });
+
+        // Close dropdown when clicking outside
+        $(document).click(function (e) {
+            if (!$(e.target).closest(".custom-select").length) {
+                $(".options-list").hide();
+            }
+        });
+    });
+
 })(jQuery);
