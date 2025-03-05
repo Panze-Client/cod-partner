@@ -515,35 +515,6 @@ select::-ms-expand {
     align-items: center;
 }
 
-
-.dir__buttons {
-    position: fixed;
-    left: 16px;
-    bottom: 16px;
-    background-color: white;
-    padding: 5px;
-    border-radius: 999px;
-    z-index: 99;
-    box-shadow: 0px 8px 32px 0 var(--primary-color-25);
-}
-
-.dir__buttons button {
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    border-radius: 99px;
-    overflow: hidden;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.dir__buttons button.active {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-
 .custom-select {
     position: relative;
     width: 60px;
